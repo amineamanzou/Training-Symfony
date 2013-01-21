@@ -1,0 +1,7 @@
+parameters:
+#    training_article.example.class: Training\ArticleBundle\Example
+
+services:
+#    training_article.example:
+#        class: %training_article.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
