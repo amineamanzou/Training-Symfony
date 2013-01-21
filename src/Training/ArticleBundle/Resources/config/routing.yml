@@ -1,3 +1,7 @@
 training_article_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: TrainingArticleBundle:Default:index }
+    
+training_article_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: TrainingArticleBundle:Default:ajouter }
