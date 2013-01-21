@@ -1,1 +1,21 @@
-Hello {{ name }}!
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<h1>Tout les articles</h1>
+    
+    {% for article in articles %}
+    <article>
+        <header>
+            <h2>{{ article.titre }}</h2>
+            <time>{{ article.date| date('d M Y') }}</time>
+        </header>
+        <div class="content">
+            <img src="{{ article.url }}" alt="{{ article.titre }}">
+            <p>
+                {{ article.description }}
+            </p>
+        </div>
+    </article>
+    {% endfor %}
+
+{% endblock %}
