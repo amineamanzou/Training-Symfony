@@ -3,8 +3,8 @@
 {% block body %}
 <h1>Ajouter un article</h1>
 
-<form action="" method="post">
-    
+<form action="{{ path("training_article_ajouter") }}" method="post">
+    {{ form_widget(form) }}
     
     
     <input type="submit">
