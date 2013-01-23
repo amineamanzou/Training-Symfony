@@ -5,3 +5,9 @@ training_article_homepage:
 training_article_ajouter:
     pattern:  /ajouter
     defaults: { _controller: TrainingArticleBundle:Default:ajouter }
+
+training_article_afficher:
+    pattern:  /{id}/afficher
+    defaults: { _controller: TrainingArticleBundle:Default:afficher }
+    requirements :
+      id : \d+
