@@ -3,10 +3,12 @@
 {% block body %}
 <h1>Ajouter un article</h1>
 
-<form action="{{ path("training_article_ajouter") }}" method="post">
-    {{ form_widget(form) }}
+<div class="container">
+    <form class="form-horizontal" action="{{ path("training_article_ajouter") }}" method="post">
+        {{ form_widget(form) }}
     
     
-    <input type="submit">
-</form>
+        <input class="btn" type="submit">
+    </form>
+</div>
 {% endblock %}

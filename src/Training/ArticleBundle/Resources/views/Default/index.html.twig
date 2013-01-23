@@ -2,7 +2,8 @@
 
 {% block body %}
 <h1>Tout les articles</h1>
-    
+
+<div class="container">
     {% for article in articles %}
     <article>
         <header>
@@ -10,12 +11,15 @@
             <time>{{ article.date| date('d M Y') }}</time>
         </header>
         <div class="content">
-            <img src="{{ article.url }}" alt="{{ article.titre }}">
+            <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
+            <blockquote>
             <p>
                 {{ article.description }}
             </p>
+            </blockquote>
         </div>
     </article>
     {% endfor %}
+</div>
 
 {% endblock %}
