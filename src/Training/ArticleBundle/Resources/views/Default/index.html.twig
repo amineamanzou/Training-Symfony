@@ -7,14 +7,18 @@
     {% for article in articles %}
     <article>
         <header>
-            <h2>{{ article.titre }}</h2>
+            <h2>
+                <a href="{{ path('training_article_afficher', { id: article.id }) }}" title="Lire la suite de \"{{ article.titre }}\"">
+                    {{ article.titre }}
+                </a>
+            </h2>
             <time>{{ article.date| date('d M Y') }}</time>
         </header>
         <div class="content">
             <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
             <blockquote>
             <p>
-                {{ article.description }}
+                {{ article.description|nl2br }}
             </p>
             </blockquote>
         </div>

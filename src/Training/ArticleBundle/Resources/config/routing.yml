@@ -11,3 +11,9 @@ training_article_afficher:
     defaults: { _controller: TrainingArticleBundle:Default:afficher }
     requirements :
       id : \d+
+      
+training_article_editer:
+    pattern:  /{id}/editer
+    defaults: { _controller: TrainingArticleBundle:Default:editer }
+    requirements :
+      id : \d+

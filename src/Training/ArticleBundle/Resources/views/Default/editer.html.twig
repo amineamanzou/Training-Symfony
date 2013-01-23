@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<h1>Editer l'article</h1>
+
+<div class="container">
+    <form class="form-horizontal" action="{{ path("training_article_editer", { id: id}) }}" method="post">
+        {{ form_widget(form) }}
+    
+    
+        <input class="btn" type="submit">
+    </form>
+</div>
+{% endblock %}
