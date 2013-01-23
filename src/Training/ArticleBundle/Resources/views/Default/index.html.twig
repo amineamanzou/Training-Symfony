@@ -5,24 +5,7 @@
 
 <div class="container">
     {% for article in articles %}
-    <article>
-        <header>
-            <h2>
-                <a href="{{ path('training_article_afficher', { id: article.id }) }}" title="Lire la suite de \"{{ article.titre }}\"">
-                    {{ article.titre }}
-                </a>
-            </h2>
-            <time>{{ article.date| date('d M Y') }}</time>
-        </header>
-        <div class="content">
-            <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
-            <blockquote>
-            <p>
-                {{ article.description|nl2br }}
-            </p>
-            </blockquote>
-        </div>
-    </article>
+            {% include 'TrainingArticleBundle:Default:article_content.html.twig' with { 'link': true } %}
     {% endfor %}
 </div>
 

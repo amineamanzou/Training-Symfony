@@ -3,22 +3,7 @@
 {% block body %}
 
 <div class="container">
-
-    <article>
-        <header>
-            <h2>{{ article.titre }}</h2>
-            <time>{{ article.date| date('d M Y') }}</time>
-        </header>
-        <div class="content">
-            <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
-            <blockquote>
-            <p>
-                {{ article.description|nl2br }}
-            </p>
-            </blockquote>
-        </div>
-    </article>
-
+    {% include 'TrainingArticleBundle:Default:article_content.html.twig' with { 'link': false } %}
 </div>
 
 {% endblock %}

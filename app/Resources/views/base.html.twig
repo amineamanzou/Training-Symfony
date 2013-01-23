@@ -12,22 +12,13 @@
     </head>
     <body>
         {% block header%}
-            <div class="masthead">
-            <ul class="nav nav-pills pull-right">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-            <h3 class="muted">Training Symfony</h3>
-            </div>
+            {% include 'TrainingArticleBundle:Default:header.html.twig' %}
         {% endblock %}
         <hr>
         {% block body %}{% endblock %}
-        {% block footer %}
         <hr>
-        <div class="footer">
-            <p> Amine Amanzou &copy; 2012 </p>
-        </div>
+        {% block footer %}
+            {% include 'TrainingArticleBundle:Default:footer.html.twig' %}
         {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
