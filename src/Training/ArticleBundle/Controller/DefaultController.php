@@ -5,6 +5,7 @@ namespace Training\ArticleBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Training\ArticleBundle\Entity\Article;
 use Training\ArticleBundle\Form\ArticleType;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -54,16 +55,36 @@ class DefaultController extends Controller
              */
             $form->bindRequest($request);
             
-            $a = $form->getData();
-            $em->persist($a);
-            $em->flush();
+            if ($form->isValid()){
+                $a = $form->getData();
+                $em->persist($a);
+                $em->flush();
             
-            return $this->redirect($this->generateUrl("training_article_homepage"));
+                return $this->redirect($this->generateUrl("training_article_homepage"));
+            }
+            
         }
         
         
         return $this->render('TrainingArticleBundle:Default:ajouter.html.twig', array(
             'form' => $form->createView(),
+        ));
+    }
+    
+    public function afficherAction($id){
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        // findOneById génere du contenue bidon donc non utilisable avec Exception
+        // findByQuelqueChose crée une fonction dynamique donc retourne Array
+        // ==> Donc besoin de findOne
+        try{
+            $article = $em->getRepository("TrainingArticleBundle:Article")->findOne($id);
+        } catch(\Exception $e) {
+            return new Response("L'article n'existe pas !", 404);
+        }
+        
+        return $this->render('TrainingArticleBundle:Default:afficher.html.twig', array(
+            'article' => $article,
         ));
     }
 }
