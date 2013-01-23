@@ -4,16 +4,31 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
-            {% stylesheets '@FunstaffCoreBundle/Resources/assets/less/foo.less'
-	             filter='less,?yui_css'
-	             output='css/foot.css' %}
-                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% stylesheets '%kernel.root_dir%/../vendor/twitter/bootstrap/less/bootstrap.less' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block header%}
+        <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">Training Symfony</h3>
+        </div>
+        {% endblock %}
+        <hr>
         {% block body %}{% endblock %}
+        {% block footer %}
+        <hr>
+        <div class="footer">
+            <p> Amine Amanzou &copy; 2012 </p>
+        </div>
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>
