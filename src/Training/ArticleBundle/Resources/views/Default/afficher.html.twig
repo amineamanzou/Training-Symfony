@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+
+    <article>
+        <header>
+            <h2>{{ article.titre }}</h2>
+            <time>{{ article.date| date('d M Y') }}</time>
+        </header>
+        <div class="content">
+            <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
+            <blockquote>
+            <p>
+                {{ article.description }}
+            </p>
+            </blockquote>
+        </div>
+    </article>
+
+</div>
+
+{% endblock %}
