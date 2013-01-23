@@ -31,6 +31,9 @@ assetic:
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
+        lessphp:
+            file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
+            apply_to: "\.less$"
         less:
             node:       /usr/local/Cellar/node/0.8.14/bin/node
             node_paths: [/opt/local/lib/node, /opt/local/lib/node_modules]
@@ -61,26 +64,3 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
-
-mopa_bootstrap:
-    navbar: ~
-    form:
-        collection:
-            widget_remove_btn:
-                icon: trash
-            widget_add_btn:
-                icon: plus-sign
-    initializr:
-        google:
-            analytics: UA-17161773-2
-
-mopa_remote_update:
-    remotes:
-        vserverli2:
-            preUpdate: git pull
-            postUpdate: bin/post-composer.sh -w
-            url: %mopa_remote_update_url%
-            username: %mopa_remote_update_user%
-            password: %mopa_remote_update_password%
-            updater: cron
-    composer: /usr/sbin/composer.phar
