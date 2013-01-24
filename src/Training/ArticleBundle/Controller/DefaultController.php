@@ -61,7 +61,7 @@ class DefaultController extends Controller
                 $em->flush();
             
                 return $this->redirect(
-                        $this->generateUrl("training_article_affiche", array(
+                        $this->generateUrl("training_article_afficher", array(
                             'id'    => $article->getId(),
                         ))
                 );
@@ -132,5 +132,17 @@ class DefaultController extends Controller
             'id'        => $article->getId(),
             'form'      => $form->createView(),
         ));
+    }
+    
+    public function supprimerAction(Article $article)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        
+        $em->remove($article);
+        $em->flush();
+        
+        return $this->redirect(
+                $this->generateUrl('training_article_homepage')
+        );
     }
 }

@@ -17,3 +17,9 @@ training_article_editer:
     defaults: { _controller: TrainingArticleBundle:Default:editer }
     requirements :
       id : \d+
+      
+training_article_supprimer:
+    pattern:  /{id}/supprimer
+    defaults: { _controller: TrainingArticleBundle:Default:supprimer }
+    requirements :
+      id : \d+
