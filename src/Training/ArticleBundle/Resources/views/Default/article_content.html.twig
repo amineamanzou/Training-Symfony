@@ -1,14 +1,23 @@
 <article>
     <header>
-        {% if link %}
-            <h2><a href="{{ path('training_article_afficher', { id: article.id }) }}" title="Lire la suite de \"{{ article.titre }}\"">
-                    {{ article.titre }}
-            </a></h2>
-        {% else %}
-            <h2>{{ article.titre }}</h2>
-        {% endif %}
-        <time>{{ article.date| date('d M Y') }}</time>
+        <div class="row-fluid">
+            <div class="span6">
+            {% if link %}
+                <h2><a href="{{ path('training_article_afficher', { id: article.id }) }}" title="Lire la suite de \"{{ article.titre }}\"">
+                        {{ article.titre }}
+                </a></h2>
+            {% else %}
+                <h2>{{ article.titre }}</h2>
+            {% endif %}
+            </div>
+            <div class="span6">
+                <time class="pull-right">{{ article.date| date('d M Y') }}</time>
+            </div>   
+        </div>
+            <a class="btn btn-primary" href="#"><i class="icon-edit icon-white"></i>Editer</a>
+            <a class="btn btn-danger" href="#" ><i class="icon-warning-sign icon-white"></i>Supprimer</a>
     </header>
+    <hr>
     <div class="content">
         <img src="{{ article.url }}" class="img-rounded" alt="{{ article.titre }}">
         <blockquote>
