@@ -14,8 +14,12 @@
                 <time class="pull-right">{{ article.date| date('d M Y') }}</time>
             </div>   
         </div>
-            <a class="btn btn-primary" href="#"><i class="icon-edit icon-white"></i>Editer</a>
-            <a class="btn btn-danger" href="#" ><i class="icon-warning-sign icon-white"></i>Supprimer</a>
+            <a class="btn btn-primary" href="{{ path('training_article_editer', { id: article.id }) }}">
+                <i class="icon-edit icon-white"></i>Editer
+            </a>
+            <a class="btn btn-danger" href="{{ path('training_article_supprimer' , { id: article.id })}}" >
+                <i class="icon-warning-sign icon-white"></i>Supprimer
+            </a>
     </header>
     <hr>
     <div class="content">
