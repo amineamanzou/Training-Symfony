@@ -56,6 +56,13 @@ class Formation
      */
     private $Duree;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Intervenant", type="string", length=255)
+     */
+    private $Intervenant;
+
 
     /**
      * Get id

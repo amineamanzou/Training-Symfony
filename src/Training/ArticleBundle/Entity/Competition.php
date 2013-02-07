@@ -49,12 +49,6 @@ class Competition
      */
     private $Lieu;
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="Classement", type="integer")
-     */
-    private $Classement;
 
 
     /**

@@ -126,27 +126,4 @@ class Artiste
     {
         return $this->DateNaissance;
     }
-
-    /**
-     * Set CVArt
-     *
-     * @param \Training\ArticleBundle\Entity\CVArt $cVArt
-     * @return Artiste
-     */
-    public function setCVArt(\Training\ArticleBundle\Entity\CVArt $cVArt = null)
-    {
-        $this->CVArt = $cVArt;
-    
-        return $this;
-    }
-
-    /**
-     * Get CVArt
-     *
-     * @return \Training\ArticleBundle\Entity\CVArt 
-     */
-    public function getCVArt()
-    {
-        return $this->CVArt;
-    }
 }

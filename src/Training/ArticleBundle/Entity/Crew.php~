@@ -96,27 +96,4 @@ class Crew
     {
         return $this->Logo;
     }
-
-    /**
-     * Set CVCrew
-     *
-     * @param \Training\ArticleBundle\Entity\CVCrew $cVCrew
-     * @return Crew
-     */
-    public function setCVCrew(\Training\ArticleBundle\Entity\CVCrew $cVCrew = null)
-    {
-        $this->CVCrew = $cVCrew;
-    
-        return $this;
-    }
-
-    /**
-     * Get CVCrew
-     *
-     * @return \Training\ArticleBundle\Entity\CVCrew 
-     */
-    public function getCVCrew()
-    {
-        return $this->CVCrew;
-    }
 }
