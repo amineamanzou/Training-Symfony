@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Annonce
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\CategoryPub")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $CategoryPub;
+
     /**
      * @var integer
      *
@@ -150,5 +157,28 @@ class Annonce
     public function getContenu()
     {
         return $this->Contenu;
+    }
+
+    /**
+     * Set CategoryPub
+     *
+     * @param \Training\ArticleBundle\Entity\CategoryPub $categoryPub
+     * @return Annonce
+     */
+    public function setCategoryPub(\Training\ArticleBundle\Entity\CategoryPub $categoryPub)
+    {
+        $this->CategoryPub = $categoryPub;
+    
+        return $this;
+    }
+
+    /**
+     * Get CategoryPub
+     *
+     * @return \Training\ArticleBundle\Entity\CategoryPub 
+     */
+    public function getCategoryPub()
+    {
+        return $this->CategoryPub;
     }
 }
