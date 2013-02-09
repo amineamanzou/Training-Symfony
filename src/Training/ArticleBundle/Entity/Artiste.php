@@ -13,9 +13,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Artiste
 {
     /**
+     * @ORM\ManyToMany(targetEntity="Training\ArticleBundle\Entity\Discipline", cascade={"persist"})
+     */
+    private $Discipline;
+
+    /**
      * @ORM\OneToOne(targetEntity="Training\ArticleBundle\Entity\CVArt", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $CVArt;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Training\ArticleBundle\Entity\Mediatheque", cascade={"persist"})
+     */
+    private $Mediatheque;
 
     /**
      * @var integer
@@ -148,5 +159,68 @@ class Artiste
     public function getCVArt()
     {
         return $this->CVArt;
+    }
+
+    /**
+     * Set Mediatheque
+     *
+     * @param \Training\ArticleBundle\Entity\Mediatheque $mediatheque
+     * @return Artiste
+     */
+    public function setMediatheque(\Training\ArticleBundle\Entity\Mediatheque $mediatheque = null)
+    {
+        $this->Mediatheque = $mediatheque;
+    
+        return $this;
+    }
+
+    /**
+     * Get Mediatheque
+     *
+     * @return \Training\ArticleBundle\Entity\Mediatheque 
+     */
+    public function getMediatheque()
+    {
+        return $this->Mediatheque;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Discipline = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add Discipline
+     *
+     * @param \Training\ArticleBundle\Entity\Discipline $discipline
+     * @return Artiste
+     */
+    public function addDiscipline(\Training\ArticleBundle\Entity\Discipline $discipline)
+    {
+        $this->Discipline[] = $discipline;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Discipline
+     *
+     * @param \Training\ArticleBundle\Entity\Discipline $discipline
+     */
+    public function removeDiscipline(\Training\ArticleBundle\Entity\Discipline $discipline)
+    {
+        $this->Discipline->removeElement($discipline);
+    }
+
+    /**
+     * Get Discipline
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDiscipline()
+    {
+        return $this->Discipline;
     }
 }

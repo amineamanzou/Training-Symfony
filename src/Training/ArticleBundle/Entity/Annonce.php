@@ -12,12 +12,22 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Annonce
 {
+    /**
+     * @ORM\ManyToMany(targetEntity="Training\ArticleBundle\Entity\Tag", cascade={"persist"})
+     */
+    private $Tag;
 
     /**
      * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\CategoryPub")
      * @ORM\JoinColumn(nullable=false)
      */
     private $CategoryPub;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Membre")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Membre;
 
     /**
      * @var integer
@@ -180,5 +190,68 @@ class Annonce
     public function getCategoryPub()
     {
         return $this->CategoryPub;
+    }
+
+    /**
+     * Set Membre
+     *
+     * @param \Training\ArticleBundle\Entity\Membre $membre
+     * @return Annonce
+     */
+    public function setMembre(\Training\ArticleBundle\Entity\Membre $membre)
+    {
+        $this->Membre = $membre;
+    
+        return $this;
+    }
+
+    /**
+     * Get Membre
+     *
+     * @return \Training\ArticleBundle\Entity\Membre 
+     */
+    public function getMembre()
+    {
+        return $this->Membre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->Tag = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add Tag
+     *
+     * @param \Training\ArticleBundle\Entity\Tag $tag
+     * @return Annonce
+     */
+    public function addTag(\Training\ArticleBundle\Entity\Tag $tag)
+    {
+        $this->Tag[] = $tag;
+    
+        return $this;
+    }
+
+    /**
+     * Remove Tag
+     *
+     * @param \Training\ArticleBundle\Entity\Tag $tag
+     */
+    public function removeTag(\Training\ArticleBundle\Entity\Tag $tag)
+    {
+        $this->Tag->removeElement($tag);
+    }
+
+    /**
+     * Get Tag
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTag()
+    {
+        return $this->Tag;
     }
 }

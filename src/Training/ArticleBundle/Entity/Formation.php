@@ -188,4 +188,27 @@ class Formation
     {
         return $this->Duree;
     }
+
+    /**
+     * Set Intervenant
+     *
+     * @param string $intervenant
+     * @return Formation
+     */
+    public function setIntervenant($intervenant)
+    {
+        $this->Intervenant = $intervenant;
+    
+        return $this;
+    }
+
+    /**
+     * Get Intervenant
+     *
+     * @return string 
+     */
+    public function getIntervenant()
+    {
+        return $this->Intervenant;
+    }
 }
