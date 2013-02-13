@@ -13,13 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Evaluer
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\CVArt")
      */
-    private $id;
+    private $CVArt;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Competence")
+     */
+    private $Competence;
+
 
     /**
      * @var integer
@@ -28,16 +32,6 @@ class Evaluer
      */
     private $Niveau;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set Niveau
@@ -60,5 +54,51 @@ class Evaluer
     public function getNiveau()
     {
         return $this->Niveau;
+    }
+
+    /**
+     * Set CVArt
+     *
+     * @param \Training\ArticleBundle\Entity\CVArt $cVArt
+     * @return Evaluer
+     */
+    public function setCVArt(\Training\ArticleBundle\Entity\CVArt $cVArt)
+    {
+        $this->CVArt = $cVArt;
+    
+        return $this;
+    }
+
+    /**
+     * Get CVArt
+     *
+     * @return \Training\ArticleBundle\Entity\CVArt 
+     */
+    public function getCVArt()
+    {
+        return $this->CVArt;
+    }
+
+    /**
+     * Set Competence
+     *
+     * @param \Training\ArticleBundle\Entity\Competence $competence
+     * @return Evaluer
+     */
+    public function setCompetence(\Training\ArticleBundle\Entity\Competence $competence)
+    {
+        $this->Competence = $competence;
+    
+        return $this;
+    }
+
+    /**
+     * Get Competence
+     *
+     * @return \Training\ArticleBundle\Entity\Competence 
+     */
+    public function getCompetence()
+    {
+        return $this->Competence;
     }
 }

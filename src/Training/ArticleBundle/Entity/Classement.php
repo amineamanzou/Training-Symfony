@@ -13,13 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Classement
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\CVArt")
      */
-    private $id;
+    private $CVArt;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Competition")
+     */
+    private $Competition;
+
 
     /**
      * @var string
@@ -28,16 +32,6 @@ class Classement
      */
     private $Classement;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set Classement
@@ -60,5 +54,51 @@ class Classement
     public function getClassement()
     {
         return $this->Classement;
+    }
+
+    /**
+     * Set CVArt
+     *
+     * @param \Training\ArticleBundle\Entity\CVArt $cVArt
+     * @return Classement
+     */
+    public function setCVArt(\Training\ArticleBundle\Entity\CVArt $cVArt)
+    {
+        $this->CVArt = $cVArt;
+    
+        return $this;
+    }
+
+    /**
+     * Get CVArt
+     *
+     * @return \Training\ArticleBundle\Entity\CVArt 
+     */
+    public function getCVArt()
+    {
+        return $this->CVArt;
+    }
+
+    /**
+     * Set Competition
+     *
+     * @param \Training\ArticleBundle\Entity\Competition $competition
+     * @return Classement
+     */
+    public function setCompetition(\Training\ArticleBundle\Entity\Competition $competition)
+    {
+        $this->Competition = $competition;
+    
+        return $this;
+    }
+
+    /**
+     * Get Competition
+     *
+     * @return \Training\ArticleBundle\Entity\Competition 
+     */
+    public function getCompetition()
+    {
+        return $this->Competition;
     }
 }

@@ -13,13 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Appartient
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Artiste")
      */
-    private $id;
+    private $Artiste;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Crew")
+     */
+    private $Crew;
+
 
     /**
      * @var string
@@ -36,15 +40,7 @@ class Appartient
     private $Droit;
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+
 
     /**
      * Set Fonction
@@ -90,5 +86,51 @@ class Appartient
     public function getDroit()
     {
         return $this->Droit;
+    }
+
+    /**
+     * Set Artiste
+     *
+     * @param \Training\ArticleBundle\Entity\Artiste $artiste
+     * @return Appartient
+     */
+    public function setArtiste(\Training\ArticleBundle\Entity\Artiste $artiste)
+    {
+        $this->Artiste = $artiste;
+    
+        return $this;
+    }
+
+    /**
+     * Get Artiste
+     *
+     * @return \Training\ArticleBundle\Entity\Artiste 
+     */
+    public function getArtiste()
+    {
+        return $this->Artiste;
+    }
+
+    /**
+     * Set Crew
+     *
+     * @param \Training\ArticleBundle\Entity\Crew $crew
+     * @return Appartient
+     */
+    public function setCrew(\Training\ArticleBundle\Entity\Crew $crew)
+    {
+        $this->Crew = $crew;
+    
+        return $this;
+    }
+
+    /**
+     * Get Crew
+     *
+     * @return \Training\ArticleBundle\Entity\Crew 
+     */
+    public function getCrew()
+    {
+        return $this->Crew;
     }
 }

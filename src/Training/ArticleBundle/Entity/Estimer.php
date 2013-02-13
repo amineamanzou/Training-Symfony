@@ -13,13 +13,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Estimer
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Annonce")
      */
-    private $id;
+    private $Annonce;
+
+    /**
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Competence")
+     */
+    private $Competence;
+
 
     /**
      * @var integer
@@ -28,16 +32,6 @@ class Estimer
      */
     private $Niveau;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set Niveau
@@ -60,5 +54,51 @@ class Estimer
     public function getNiveau()
     {
         return $this->Niveau;
+    }
+
+    /**
+     * Set Annonce
+     *
+     * @param \Training\ArticleBundle\Entity\Annonce $annonce
+     * @return Estimer
+     */
+    public function setAnnonce(\Training\ArticleBundle\Entity\Annonce $annonce)
+    {
+        $this->Annonce = $annonce;
+    
+        return $this;
+    }
+
+    /**
+     * Get Annonce
+     *
+     * @return \Training\ArticleBundle\Entity\Annonce 
+     */
+    public function getAnnonce()
+    {
+        return $this->Annonce;
+    }
+
+    /**
+     * Set Competence
+     *
+     * @param \Training\ArticleBundle\Entity\Competence $competence
+     * @return Estimer
+     */
+    public function setCompetence(\Training\ArticleBundle\Entity\Competence $competence)
+    {
+        $this->Competence = $competence;
+    
+        return $this;
+    }
+
+    /**
+     * Get Competence
+     *
+     * @return \Training\ArticleBundle\Entity\Competence 
+     */
+    public function getCompetence()
+    {
+        return $this->Competence;
     }
 }

@@ -13,38 +13,19 @@ use Doctrine\ORM\Mapping as ORM;
 class EnTantQue
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Membre")
      */
-    private $id;
+    private $Membre;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="Statut", type="string", length=255)
+     * @ORM\Id
+     * @ORM\ManyToOne(targetEntity="Training\ArticleBundle\Entity\Event")
      */
-    private $Statut;
+    private $Event;
 
 
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set Statut
-     *
-     * @param string $statut
-     * @return EnTantQue
-     */
     public function setStatut($statut)
     {
         $this->Statut = $statut;
@@ -60,5 +41,51 @@ class EnTantQue
     public function getStatut()
     {
         return $this->Statut;
+    }
+
+    /**
+     * Set Membre
+     *
+     * @param \Training\ArticleBundle\Entity\Membre $membre
+     * @return EnTantQue
+     */
+    public function setMembre(\Training\ArticleBundle\Entity\Membre $membre)
+    {
+        $this->Membre = $membre;
+    
+        return $this;
+    }
+
+    /**
+     * Get Membre
+     *
+     * @return \Training\ArticleBundle\Entity\Membre 
+     */
+    public function getMembre()
+    {
+        return $this->Membre;
+    }
+
+    /**
+     * Set Event
+     *
+     * @param \Training\ArticleBundle\Entity\Event $event
+     * @return EnTantQue
+     */
+    public function setEvent(\Training\ArticleBundle\Entity\Event $event)
+    {
+        $this->Event = $event;
+    
+        return $this;
+    }
+
+    /**
+     * Get Event
+     *
+     * @return \Training\ArticleBundle\Entity\Event 
+     */
+    public function getEvent()
+    {
+        return $this->Event;
     }
 }
