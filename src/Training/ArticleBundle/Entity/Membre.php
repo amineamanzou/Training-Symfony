@@ -13,6 +13,16 @@ use Doctrine\ORM\Mapping as ORM;
 class Membre
 {
     /**
+     * @ORM\OneToOne(targetEntity="Training\ArticleBundle\Entity\Artiste", cascade={"persist"})
+    */
+    private $Artiste;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Training\ArticleBundle\Entity\Annonceur", cascade={"persist"})
+    */
+    private $Annonceur;    
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="id", type="integer")
@@ -240,5 +250,51 @@ class Membre
     public function getNumTel()
     {
         return $this->NumTel;
+    }
+
+    /**
+     * Set Artiste
+     *
+     * @param \Training\ArticleBundle\Entity\Artiste $artiste
+     * @return Membre
+     */
+    public function setArtiste(\Training\ArticleBundle\Entity\Artiste $artiste = null)
+    {
+        $this->Artiste = $artiste;
+    
+        return $this;
+    }
+
+    /**
+     * Get Artiste
+     *
+     * @return \Training\ArticleBundle\Entity\Artiste 
+     */
+    public function getArtiste()
+    {
+        return $this->Artiste;
+    }
+
+    /**
+     * Set Annonceur
+     *
+     * @param \Training\ArticleBundle\Entity\Annonceur $annonceur
+     * @return Membre
+     */
+    public function setAnnonceur(\Training\ArticleBundle\Entity\Annonceur $annonceur = null)
+    {
+        $this->Annonceur = $annonceur;
+    
+        return $this;
+    }
+
+    /**
+     * Get Annonceur
+     *
+     * @return \Training\ArticleBundle\Entity\Annonceur 
+     */
+    public function getAnnonceur()
+    {
+        return $this->Annonceur;
     }
 }
